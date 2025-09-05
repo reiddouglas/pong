@@ -4,17 +4,19 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour
 {
     private static ScoreManager _Instance;
-    public static ScoreManager Instance
+    public static ScoreManager Instance { get { return _Instance; } }
+    private void Awake()
     {
-        get
+        if (_Instance != null && _Instance != this)
         {
-            if (!_Instance)
-            {
-                _Instance = new GameObject().AddComponent<ScoreManager>();
-            }
-            return _Instance;
+            Destroy(gameObject);
+        }
+        else
+        {
+            _Instance = this;
         }
     }
+
     public int[] scores = new int[2];
     public event Action<int[]> OnScoreChanged;
 

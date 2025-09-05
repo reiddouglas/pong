@@ -4,15 +4,15 @@ using System.Collections;
 public class GameManager : MonoBehaviour
 {
     private static GameManager _Instance;
-    public static GameManager Instance
+    public static GameManager Instance { get { return _Instance; } }
+    private void Awake()
     {
-        get
+        if (_Instance != null && _Instance != this)
         {
-            if (!_Instance)
-            {
-                _Instance = new GameObject().AddComponent<GameManager>();
-            }
-            return _Instance;
+            Destroy(gameObject);
+        }else
+        {
+            _Instance = this;
         }
     }
 

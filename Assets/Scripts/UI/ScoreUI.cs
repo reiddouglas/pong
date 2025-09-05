@@ -10,11 +10,12 @@ public class ScoreUI : MonoBehaviour
         scoreText = GetComponent<TextMeshProUGUI>();
     }
 
-    private void OnEnable() {
+    private void Start()
+    {
         ScoreManager.Instance.OnScoreChanged += UpdateScore;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         ScoreManager.Instance.OnScoreChanged -= UpdateScore;
     }
