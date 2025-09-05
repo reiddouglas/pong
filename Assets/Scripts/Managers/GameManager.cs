@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
         p2StartPos = p2.transform.position;
 
         ballStartSpeed = ball.speed;
+
+        ScoreManager.Instance.ResetScores();
     }
 
     private void OnEnable()

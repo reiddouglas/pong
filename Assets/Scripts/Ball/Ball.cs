@@ -14,7 +14,6 @@ public class Ball : MonoBehaviour
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         sr = gameObject.GetComponent<SpriteRenderer>();
-        dir = new Vector2(1, 0);
     }
 
     private void FixedUpdate()
