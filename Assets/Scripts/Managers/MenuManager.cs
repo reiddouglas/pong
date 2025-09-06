@@ -4,15 +4,16 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     private static MenuManager _Instance;
-    public static MenuManager Instance
+    public static MenuManager Instance { get { return _Instance; } }
+    private void Awake()
     {
-        get
+        if (_Instance != null && _Instance != this)
         {
-            if (!_Instance)
-            {
-                _Instance = new GameObject().AddComponent<MenuManager>();
-            }
-            return _Instance;
+            Destroy(gameObject);
+        }
+        else
+        {
+            _Instance = this;
         }
     }
 
