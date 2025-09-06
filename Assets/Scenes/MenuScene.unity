@@ -945,7 +945,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1144844073}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1415956729}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1144844073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1527,7 +1539,7 @@ MonoBehaviour:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1415956730}
   - {fileID: 1089926957}
   - {fileID: 748029920}
   - {fileID: 624388315}
-  - {fileID: 1415956730}
