@@ -62,6 +62,7 @@ public class Ball : MonoBehaviour
             // find diference in position and have it move that way!
             dir = (rb.position - collision.rigidbody.position);
             dir.Normalize();
+            speed += new Vector2(1f, 1f);
             SoundFXManager.Instance.PlaySoundFXClip(bounceSoundClip, transform, 1f);
         }
     }
