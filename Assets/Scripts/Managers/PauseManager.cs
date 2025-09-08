@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,12 +19,16 @@ public class PauseManager : MonoBehaviour
     }
 
     private bool isPaused = false;
-    private GameObject pauseMenuUI;
+    [SerializeField] private GameObject pauseMenuUI;
 
     private void Start()
     {
-        pauseMenuUI = GameObject.FindGameObjectWithTag("PauseMenu");
-        pauseMenuUI.SetActive(false);
+        OptionsManager.Instance.OnOptionsClosed += CloseOptions;
+    }
+
+    private void OnDestroy()
+    {
+        OptionsManager.Instance.OnOptionsClosed -= CloseOptions;
     }
 
     private void Update()
@@ -51,6 +56,17 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 1;
         isPaused = false;
         Debug.Log("Game resumed");
+    }
+
+    public void OpenOptions()
+    {
+        pauseMenuUI.SetActive(false);
+        OptionsManager.Instance.showOptions();
+    }
+
+    public void CloseOptions()
+    {
+        pauseMenuUI.SetActive(true);
     }
 
     public void Quit()
