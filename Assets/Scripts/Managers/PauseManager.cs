@@ -20,15 +20,16 @@ public class PauseManager : MonoBehaviour
 
     private bool isPaused = false;
     [SerializeField] private GameObject pauseMenuUI;
+    [SerializeField] private OptionsUI options;
 
     private void Start()
     {
-        OptionsManager.Instance.OnOptionsClosed += CloseOptions;
+        options.OnOptionsClosed += CloseOptions;
     }
 
     private void OnDestroy()
     {
-        OptionsManager.Instance.OnOptionsClosed -= CloseOptions;
+        options.OnOptionsClosed -= CloseOptions;
     }
 
     private void Update()
@@ -61,12 +62,13 @@ public class PauseManager : MonoBehaviour
     public void OpenOptions()
     {
         pauseMenuUI.SetActive(false);
-        OptionsManager.Instance.showOptions();
+        options.gameObject.SetActive(true);
     }
 
     public void CloseOptions()
     {
         pauseMenuUI.SetActive(true);
+        options.gameObject.SetActive(false);
     }
 
     public void Quit()
