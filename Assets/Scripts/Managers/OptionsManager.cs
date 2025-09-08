@@ -15,7 +15,7 @@ public class OptionsManager : MonoBehaviour
         else
         {
             _Instance = this;
-            DontDestroyOnLoad(this);
+            DontDestroyOnLoad(gameObject);
         }
     }
 }

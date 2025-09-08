@@ -20,17 +20,7 @@ public class PauseManager : MonoBehaviour
 
     private bool isPaused = false;
     [SerializeField] private GameObject pauseMenuUI;
-    [SerializeField] private OptionsUI options;
 
-    private void Start()
-    {
-        options.OnOptionsClosed += CloseOptions;
-    }
-
-    private void OnDestroy()
-    {
-        options.OnOptionsClosed -= CloseOptions;
-    }
 
     private void Update()
     {
@@ -57,18 +47,6 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 1;
         isPaused = false;
         Debug.Log("Game resumed");
-    }
-
-    public void OpenOptions()
-    {
-        pauseMenuUI.SetActive(false);
-        options.gameObject.SetActive(true);
-    }
-
-    public void CloseOptions()
-    {
-        pauseMenuUI.SetActive(true);
-        options.gameObject.SetActive(false);
     }
 
     public void Quit()

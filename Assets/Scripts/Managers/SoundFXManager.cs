@@ -13,6 +13,7 @@ public class SoundFXManager : MonoBehaviour
         else
         {
             _Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
     }
 
